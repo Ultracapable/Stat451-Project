@@ -19,17 +19,12 @@ The primary dataset consists of the following columns:
 - **work_industry**: Previous work industry (Consulting, Finance, Technology, etc.)
 - **admission**: Admission status (Admit, Waitlist, Deny)
 
-## Analysis Goals
-We will create visualizations to analyze the influence of gender, GPA, GMAT scores, work experience, and major on admission status. Our findings will provide insights into the admissions process and highlight any potential biases present in the data.
+## Analysis Goals and Impact on Admissions
 
-## Impact of Research Question on Admissions
+We will create visualizations to analyze the influence of gender, GPA, GMAT scores, work experience, and major on admission status. Our findings will provide insights into the admissions process and highlight any potential biases present in the data. By exploring the various factors that influence admission decisions, we aim to provide insights that can benefit both the admissions committee and prospective applicants in the following ways:
 
-Our research question has significant implications for understanding and improving the admissions process. By exploring the various factors that influence admission decisions, we aim to provide insights that can benefit both the admissions committee and prospective applicants in the following ways:
+1. **Identifying Biases and Inequities**: Analyzing the relationships between demographic factors (such as gender, race, and international status) and admission outcomes can reveal potential biases in the admissions process. 
 
-1. **Identifying Biases and Inequities**: Analyzing the relationships between demographic factors (such as gender, race, and international status) and admission outcomes can reveal potential biases in the admissions process. This understanding can help the admissions committee create more equitable practices and policies that ensure all applicants are evaluated fairly, regardless of their background.
+2. **Optimizing Admissions Criteria**: By evaluating the impact of academic performance indicators like GPA and GMAT scores alongside experiential factors like work experience and industry background, the admissions committee can refine their criteria.
 
-2. **Optimizing Admissions Criteria**: By evaluating the impact of academic performance indicators like GPA and GMAT scores alongside experiential factors like work experience and industry background, the admissions committee can refine their criteria. This research can guide them in balancing quantitative and qualitative aspects of applicants, ensuring a holistic review process that aligns with Wharton's values and goals.
-
-3. **Enhancing Applicant Guidance**: The insights gained from this analysis can be valuable for prospective applicants. Understanding which factors significantly influence admissions can help applicants tailor their applications more effectively, focusing on areas that align with the admissions committee's expectations. This guidance can empower applicants to present their strengths and experiences in a way that resonates with the selection criteria.
-
-In summary, our research question is not just an academic inquiry; it has practical implications that can lead to a more equitable, efficient, and effective admissions process at Wharton, fostering an inclusive environment that benefits all stakeholders involved.
+3. **Enhancing Applicant Guidance**: The insights gained from this analysis can be valuable for prospective applicants. Understanding which factors significantly influence admissions can help applicants tailor their applications more effectively, focusing on areas that align with the admissions committee's expectations. 
