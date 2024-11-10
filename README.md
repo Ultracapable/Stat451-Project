@@ -28,3 +28,10 @@ We will create visualizations to analyze the influence of gender, GPA, GMAT scor
 2. **Optimizing Admissions Criteria**: By evaluating the impact of academic performance indicators like GPA and GMAT scores alongside experiential factors like work experience and industry background, the admissions committee can refine their criteria.
 
 3. **Enhancing Applicant Guidance**: The insights gained from this analysis can be valuable for prospective applicants. Understanding which factors significantly influence admissions can help applicants tailor their applications more effectively, focusing on areas that align with the admissions committee's expectations. 
+
+
+
+## Analysis of visualization 
+
+plot 1
+The chart shows a very similar pattern of admission, nonadmission, and waitlist rates across the different majors (Business, Humanities, and STEM). The admission rate remains around 14-15% for each major, while the nonadmission rate is consistently above 83%. This consistency across majors suggests that an applicant’s major does not significantly influence their chances of admission, as each major displays almost identical admission rates.
