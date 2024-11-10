@@ -34,4 +34,5 @@ We will create visualizations to analyze the influence of gender, GPA, GMAT scor
 ## Analysis of visualization 
 
 plot 1
+
 The chart shows a very similar pattern of admission, nonadmission, and waitlist rates across the different majors (Business, Humanities, and STEM). The admission rate remains around 14-15% for each major, while the nonadmission rate is consistently above 83%. This consistency across majors suggests that an applicant’s major does not significantly influence their chances of admission, as each major displays almost identical admission rates.
