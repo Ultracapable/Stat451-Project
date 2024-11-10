@@ -36,3 +36,9 @@ We will create visualizations to analyze the influence of gender, GPA, GMAT scor
 plot 1
 
 The chart shows a very similar pattern of admission, nonadmission, and waitlist rates across the different majors (Business, Humanities, and STEM). The admission rate remains around 14-15% for each major, while the nonadmission rate is consistently above 83%. This consistency across majors suggests that an applicant’s major does not significantly influence their chances of admission, as each major displays almost identical admission rates.
+
+plot 2
+
+The chart illustrates the impact of gender and race on admission chances. The reference groups for comparison were selected based on the largest applicant group within each category: male for gender and international students for race.
+
+In terms of gender, females exhibit a higher admission rate compared to males. Among racial groups, white and Asian applicants show a relative advantage in admission rates over international students, with applicants classified in the "other" category having the highest advantage. Conversely, Hispanic and Black applicants have comparatively lower admission rates, with Black applicants experiencing the lowest rates overall. These findings point to notable disparities in admission likelihood based on both gender and race.
