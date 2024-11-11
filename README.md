@@ -40,8 +40,9 @@ If major had a stronger impact, we would expect to see distinct differences in a
 
 plot 2
 
-The chart illustrates the impact of gender and race on admission chances. The reference groups for comparison were selected based on the largest applicant group within each category: male for gender and international students for race.
-In terms of gender, females exhibit a higher admission rate compared to males. Among racial groups, white and Asian applicants show a relative advantage in admission rates over international students, with applicants classified in the "other" category having the highest advantage. Conversely, Hispanic and Black applicants have comparatively lower admission rates, with Black applicants experiencing the lowest rates overall. 
+In this plot, the question we aim to answer is: "How do gender and race impact the chances of admission for MBA applicants?" The plot helps us visualize these relationships by comparing the admission rates of various demographic groups to those of the selected reference groups (male for gender and international for race). The reference groups for comparison were selected based on the largest applicant group within each category: male for gender and international students for race.
+
+From the plot, we conclude that gender and race are associated with different admission probabilities. Female applicants have a higher likelihood of admission compared to males, suggesting a potential gender-based differential in admissions. Similarly, among racial groups, white and Asian applicants have an advantage over international students, while applicants in the "other" racial category have the greatest advantage. In contrast, Hispanic and Black applicants have lower admission rates, with Black applicants having the lowest likelihood of admission among all groups. These patterns highlight notable disparities that may reflect underlying biases or systematic factors influencing admissions based on demographic characteristics.
 
 plot 3
 
