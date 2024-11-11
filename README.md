@@ -4,7 +4,7 @@
 The primary question we aim to explore is: **What factors have a main impact on determining the admissions status of Wharton's Class of 2025 applicants?**
 
 ## Project Overview
-This project will utilize synthetic data generated from the statistics of the Wharton Class of 2025. The dataset includes various features such as applicant gender, GPA, GMAT scores, work experience, and major, as well as the admission status (Admit, Waitlist, Deny). Our goal is to perform an exploratory data analysis to understand the relationships and patterns among these variables, focusing on how they correlate with admission outcomes.
+This project will utilize synthetic data generated from the statistics of the Wharton Class of 2025. Synthetic data was chosen to ensure privacy and flexibility, as real admissions data is confidential and not publicly accessible. Using synthetic data allows us to explore realistic trends and test hypothetical scenarios while maintaining ethical standards and avoiding exposure of personal information. The dataset includes various features such as applicant gender, GPA, GMAT scores, work experience, and major, as well as the admission status (Admit, Waitlist, Deny). Our goal is to perform an exploratory data analysis to understand the relationships and patterns among these variables, focusing on how they correlate with admission outcomes.
 
 ## Data Sources
 The primary dataset consists of the following columns:
