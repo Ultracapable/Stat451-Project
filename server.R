@@ -66,6 +66,16 @@ server <- function(input, output) {
         subtitle = paste('Reference group: Gender:', levels(mba_data$gender)[1], ', Race:', levels(mba_data$race)[1]),
         x = "Variable",
         y = "Coefficient (Log-Odds)"
+      ) +
+     theme_minimal() +
+      theme(
+        plot.title = element_text(size = 20),          # Increase title font size
+        axis.title.x = element_text(size = 16),        # Increase x-axis label font size
+        axis.title.y = element_text(size = 16),        # Increase y-axis label font size
+        axis.text.x = element_text(size = 14),         # Increase x-axis tick label font size
+        axis.text.y = element_text(size = 14),         # Increase y-axis tick label font size
+        legend.title = element_text(size = 16),        # Increase legend title font size
+        legend.text = element_text(size = 16)          # Increase legend text font size
       )
   })
   
@@ -83,7 +93,16 @@ server <- function(input, output) {
       xlim(2.5, 4.0) +  # Set x-axis limits from 2.5 to 4.0
       ylim(550, 800) +
       scale_x_continuous(breaks = seq(2.5, 4.0, by = 0.1)) +  # Set x-axis breaks from 2.5 to 4.0, stepping by 0.1
-      theme_minimal()
+      theme_minimal() +
+      theme(
+        plot.title = element_text(size = 20),          # Increase title font size
+        axis.title.x = element_text(size = 16),        # Increase x-axis label font size
+        axis.title.y = element_text(size = 16),        # Increase y-axis label font size
+        axis.text.x = element_text(size = 14),         # Increase x-axis tick label font size
+        axis.text.y = element_text(size = 14),         # Increase y-axis tick label font size
+        legend.title = element_text(size = 16),        # Increase legend title font size
+        legend.text = element_text(size = 16)          # Increase legend text font size
+      )
   })
   
   # Download Report
