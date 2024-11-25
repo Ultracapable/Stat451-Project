@@ -25,58 +25,57 @@ server <- function(input, output) {
       labs(title = paste("Admission Status by", selected_category, "(Percentage)"), x = selected_category, y = "Percentage of Applicants", fill = "Admission Status") +
       theme_minimal() +
       theme(
-        plot.title = element_text(size = 20),          # Increase title font size
-        axis.title.x = element_text(size = 16),        # Increase x-axis label font size
-        axis.title.y = element_text(size = 16),        # Increase y-axis label font size
-        axis.text.x = element_text(size = 14),         # Increase x-axis tick label font size
-        axis.text.y = element_text(size = 14),         # Increase y-axis tick label font size
-        legend.title = element_text(size = 16),        # Increase legend title font size
-        legend.text = element_text(size = 16)          # Increase legend text font size
+        plot.title = element_text(size = 20),
+        axis.title.x = element_text(size = 16),
+        axis.title.y = element_text(size = 16),
+        axis.text.x = element_text(size = 14),
+        axis.text.y = element_text(size = 14),
+        legend.title = element_text(size = 16),
+        legend.text = element_text(size = 16)
       )
   })
   
   output$plot2 <- renderPlot({
+    
     mba_data$race[mba_data$race == "" | is.na(mba_data$race)] <- "International"
     mba_data$admission[mba_data$admission == "" | is.na(mba_data$admission)] <- "Nonadmission"
-    
-    mba_data$admission <- recode(mba_data$admission, "Admit" = 1,"Waitlist"= 0, "Nonadmission" = 0, )
-    
-    mba_data$gender <- factor(mba_data$gender)
-    mba_data$race <- factor(mba_data$race)
-    gender_counts <- table(mba_data$gender)
-    race_counts <- table(mba_data$race)
-    
-    mba_data$gender <- relevel(mba_data$gender, ref = names(gender_counts)[which.max(gender_counts)])
-    mba_data$race <- relevel(mba_data$race, ref = names(race_counts)[which.max(race_counts)])
-    model_gender_race <- glm(admission ~ gender + race, data = mba_data, family = binomial)
-    summary(model_gender_race)
-    
+    mba_data$admission <- factor(mba_data$admission, levels = c("Admit", "Waitlist", "Nonadmission"))
+
+    gender_onehot <- model.matrix(~ gender - 1, data = mba_data)
+    race_onehot <- model.matrix(~ race - 1, data = mba_data)
+    mba_data_onehot <- cbind(mba_data, gender_onehot, race_onehot)
+    onehot_columns <- c(colnames(gender_onehot), colnames(race_onehot))  
+    formula_onehot <- as.formula(paste("admission ~", paste(onehot_columns, collapse = " + ")))
+    model_gender_race <- glm(formula_onehot, data = mba_data_onehot, family = binomial)
+
+
     coef_df <- data.frame(
-      variable = names(coef(model_gender_race)),  # Coefficient names
-      coefficient = coef(model_gender_race)  # Coefficient values
+      variable = names(coef(model_gender_race)),  
+      coefficient = coef(model_gender_race)      
     )
-    
     coef_df <- coef_df[coef_df$variable != "(Intercept)", ]
+
     ggplot(coef_df, aes(x = variable, y = coefficient)) +
-      geom_bar(stat = "identity", fill = "steelblue") + 
-      theme_minimal() +
-      coord_flip() +  # Flip the axes to make it easier to read
-      labs(
-        title = "Influence of Gender and Race on MBA Admission (Log-Odds Coefficients)",
-        subtitle = paste('Reference group: Gender:', levels(mba_data$gender)[1], ', Race:', levels(mba_data$race)[1]),
-        x = "Variable",
-        y = "Coefficient (Log-Odds)"
-      ) +
-     theme_minimal() +
-      theme(
-        plot.title = element_text(size = 20),          # Increase title font size
-        axis.title.x = element_text(size = 16),        # Increase x-axis label font size
-        axis.title.y = element_text(size = 16),        # Increase y-axis label font size
-        axis.text.x = element_text(size = 14),         # Increase x-axis tick label font size
-        axis.text.y = element_text(size = 14),         # Increase y-axis tick label font size
-        legend.title = element_text(size = 16),        # Increase legend title font size
-        legend.text = element_text(size = 16)          # Increase legend text font size
-      )
+    geom_bar(stat = "identity", fill = "steelblue") +
+    theme_minimal() +
+    coord_flip() +  # Flip the axes to make it easier to read
+    labs(
+      title = "Influence of Gender and Race on MBA Admission (Log-Odds Coefficients)",
+      subtitle = "One-Hot Encoded Variables",
+      x = "Variable",
+      y = "Coefficient (Log-Odds)"
+    ) +
+    theme_minimal() +
+    theme(
+      plot.title = element_text(size = 20),
+      axis.title.x = element_text(size = 16),
+      axis.title.y = element_text(size = 16),
+      axis.text.x = element_text(size = 14),
+      axis.text.y = element_text(size = 14),
+      legend.title = element_text(size = 16),
+      legend.text = element_text(size = 16)
+    )    
+
   })
   
   # Plot 3: GPA and GMAT Trends
@@ -109,13 +108,13 @@ server <- function(input, output) {
       ylim(550, 800) +
       theme_minimal() +
       theme(
-        plot.title = element_text(size = 20),          # Increase title font size
-        axis.title.x = element_text(size = 16),        # Increase x-axis label font size
-        axis.title.y = element_text(size = 16),        # Increase y-axis label font size
-        axis.text.x = element_text(size = 14),         # Increase x-axis tick label font size
-        axis.text.y = element_text(size = 14),         # Increase y-axis tick label font size
-        legend.title = element_text(size = 16),        # Increase legend title font size
-        legend.text = element_text(size = 16)          # Increase legend text font size
+        plot.title = element_text(size = 20),
+        axis.title.x = element_text(size = 16),
+        axis.title.y = element_text(size = 16),
+        axis.text.x = element_text(size = 14),
+        axis.text.y = element_text(size = 14),
+        legend.title = element_text(size = 16),
+        legend.text = element_text(size = 16)
       )
       if (nrow(user_data) > 0) {
         plot <- plot +
