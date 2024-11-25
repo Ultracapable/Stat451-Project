@@ -33,9 +33,23 @@ ui <- fluidPage(
                tags$li("Enhancing Applicant Guidance: The insights gained from this analysis can be valuable for prospective applicants. Understanding which factors significantly influence admissions can help applicants tailor their applications more effectively, focusing on areas that align with the admissions committee's expectations.")
              )
     ),
-    tabPanel("Plot 1: Admission Rates by Major",
-             plotOutput("plot1"),
-             p("The chart shows a very similar pattern of admission, nonadmission, and waitlist rates across the different majors (Business, Humanities, and STEM). The admission rate remains around 14-15% for each major, while the nonadmission rate is consistently above 83%. This consistency across majors suggests that an applicant’s major does not significantly influence their chances of admission, as each major displays almost identical admission rates. If major had a stronger impact, we would expect to see distinct differences in admission rates across the majors, with some majors having significantly higher or lower admission rates than others. The lack of such variation implies that other features likely play a larger role in admission decisions.")
+    tabPanel("Plot 1: Admission Rates by Category",
+             sidebarPanel(
+               selectInput(
+                 inputId = "plot1_category",
+                 label = "Select a category to view:",
+                 choices = c("Major" = "major",
+                             "Race" = "race",
+                             "Gender" = "gender"),
+                 selected = "major"
+               )
+             ),
+             mainPanel(
+               plotOutput("plot1")
+             ),
+             p(" The charts reveal consistent patterns in admission, non-admission, and waitlist rates across different categories, including major, race, and gender. For majors (Business, Humanities, and STEM), the admission rate remains stable at around 14-15%, while the non-admission rate is consistently above 83%. This uniformity indicates that an applicant's major does not significantly influence their chances of admission. If major were a stronger determinant, distinct variations in admission rates across different fields would be expected."),
+             p(" Similarly, the chart analyzing race shows consistently high non-admission rates across all racial groups, ranging from 78.9% to 90.2%. Admission rates are highest for Asian applicants (16.6%) and lowest for Hispanic applicants (10.4%), but the overall variation in admission rates between racial groups is limited. These trends suggest that while there may be slight differences in outcomes by race, other factors likely have a more substantial impact on admission decisions."),
+             p(" Lastly, the chart by gender shows that female applicants have a higher admission rate (20%) compared to male applicants (11.4%), though non-admission dominates for both genders, with rates of 77.8% for females and 87.3% for males. The waitlist percentages remain minimal across all categories analyzed. The consistency of these patterns across major, race, and gender suggests that none of these individual characteristics significantly influence admission decisions on their own, and other variables likely play a more critical role.")
     ),
     tabPanel("Plot 2: Gender and Race Impact",
              plotOutput("plot2"),
