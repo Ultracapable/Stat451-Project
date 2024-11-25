@@ -80,19 +80,33 @@ server <- function(input, output) {
   })
   
   # Plot 3: GPA and GMAT Trends
+  user_point <- reactiveVal(data.frame(gpa = numeric(0), gmat = numeric(0)))
+  
+  observeEvent(input$submit, {
+    user_point(data.frame(gpa = input$gpa, gmat = input$gmat))
+  })
+  
   output$plot3 <- renderPlot({
-    filtered_data <- subset(mba_data, admission %in% c("Admit"))
-    ggplot(filtered_data, aes(x = gpa, y = gmat, color = admission)) +
+    mba_data$race[mba_data$race == "" | is.na(mba_data$race)] <- "International"
+    mba_data$admission[mba_data$admission == "" | is.na(mba_data$admission)] <- " Non-Admitted"
+    mba_data$admission[mba_data$admission == "Admit"] <- "Admitted"
+    
+    user_data <- user_point()
+    print(user_data)
+    
+    plot <- ggplot(mba_data, aes(x = gpa, y = gmat, color = admission)) +
       geom_point(alpha = 0.6, size = 1.5) +
       labs(
-        title = "Relationship Between GPA, GMAT Scores, and Admission Status (Admit Only)",
+        title = "Relationship Between GPA, GMAT Scores, and Admission Status",
         x = "GPA",
         y = "GMAT Score",
         color = "Admission Status"
       ) +
-      xlim(2.5, 4.0) +  # Set x-axis limits from 2.5 to 4.0
+      scale_x_continuous(
+        limits = c(2.6, 4),
+        breaks = seq(2.6, 4, by = 0.1)
+      ) +
       ylim(550, 800) +
-      scale_x_continuous(breaks = seq(2.5, 4.0, by = 0.1)) +  # Set x-axis breaks from 2.5 to 4.0, stepping by 0.1
       theme_minimal() +
       theme(
         plot.title = element_text(size = 20),          # Increase title font size
@@ -103,6 +117,14 @@ server <- function(input, output) {
         legend.title = element_text(size = 16),        # Increase legend title font size
         legend.text = element_text(size = 16)          # Increase legend text font size
       )
+      if (nrow(user_data) > 0) {
+        plot <- plot +
+          geom_point(data = user_data, aes(x = gpa, y = gmat), 
+                    color = "blue", size = 5, shape = 18) +  # Blue star for user input
+          annotate("text", x = user_data$gpa, y = user_data$gmat + 10, 
+                  label = "You", color = "blue", size = 5)
+      }
+    plot
   })
   
   # Download Report

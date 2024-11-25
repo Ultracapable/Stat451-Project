@@ -57,8 +57,18 @@ ui <- fluidPage(
              p(" From the plot, we conclude that gender and race are associated with different admission probabilities. Female applicants have a higher likelihood of admission compared to males, suggesting a potential gender-based differential in admissions. Similarly, among racial groups, white and Asian applicants have an advantage over international students, while applicants in the other racial category have the greatest advantage. In contrast, Hispanic and Black applicants have lower admission rates, with Black applicants having the lowest likelihood of admission among all groups. These patterns highlight notable disparities that may reflect underlying biases or systematic factors influencing admissions based on demographic characteristics.")
     ),
     tabPanel("Plot 3: GPA and GMAT Trends",
-             plotOutput("plot3"),
-             p("The graph provides a clear trend that the majority of admitted applicants have a GPA over 3.2 and a GMAT score over 650, suggesting that both measures of academic performance (GPA and GMAT) play an important role in admissions decisions. The relatively even distribution of scores within a given range of GPA and GMAT scores suggests that applicants with higher academic qualifications have a better chance of being admitted. This finding highlights the importance of these factors in the admissions process and provides valuable insights into how applicants can align their profiles with the expectations of admissions committees. The x-axis of the plot represents GPA, ranging from 2.9 to 4.0, with cutoffs every 0.1; the y-axis represents GMAT scores, ranging from 550 to 800. Since no student has a GPA below 2.8 and a GMAT below 550, the x-axis starts at 2.9 and the y-axis starts at 550.")
+             sidebarLayout(
+               sidebarPanel(
+                 numericInput("gpa", "Enter Your GPA:", value = 3.5, min = 0, max = 4.0, step = 0.1),
+                 numericInput("gmat", "Enter Your GMAT Score:", value = 700, min = 0, max = 800, step = 10),
+                 actionButton("submit", "Submit"),
+                 p("Enter your GPA and GMAT scores to see your data point added to the plot.")
+               ),
+               mainPanel(
+                 plotOutput("plot3"),
+                 p("The graph provides a clear trend that the majority of admitted applicants have a GPA over 3.2 and a GMAT score over 650, suggesting that both measures of academic performance (GPA and GMAT) play an important role in admissions decisions. The relatively even distribution of scores within a given range of GPA and GMAT scores suggests that applicants with higher academic qualifications have a better chance of being admitted. This finding highlights the importance of these factors in the admissions process and provides valuable insights into how applicants can align their profiles with the expectations of admissions committees. The x-axis of the plot represents GPA, ranging from 2.9 to 4.0, with cutoffs every 0.1; the y-axis represents GMAT scores, ranging from 550 to 800. Since no student has a GPA below 2.8 and a GMAT below 550, the x-axis starts at 2.9 and the y-axis starts at 550.")
+               )
+             )
     ),
     tabPanel("Download Report",
              downloadButton("download_report", "Download Analysis Report"))
