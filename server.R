@@ -63,7 +63,7 @@ server <- function(input, output) {
     coefficients <- as.data.frame(summary(logistic_model)$coefficients)
     coefficients$Variable <- rownames(coefficients)
     coefficients <- coefficients %>%
-      filter(!Variable %in% c("(Intercept)", "gpa", "majorSTEM", "majorHumanities")) %>%
+      filter(!Variable %in% c("(Intercept)", "gpa", "gmat", "majorSTEM", "majorHumanities")) %>%
       arrange(desc(abs(Estimate)))
     
     ggplot(coefficients, aes(x = reorder(Variable, Estimate), y = Estimate)) +
