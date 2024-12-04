@@ -53,11 +53,10 @@ ui <- fluidPage(
     ),
     tabPanel("Plot 2: Gender and Race Impact",
          plotOutput("plot2"),
-         p("The graph explores how gender and race impact MBA admission decisions, using log-odds coefficients from a logistic regression model. Positive values indicate increased admission likelihood, while negative values reflect reduced likelihood, with comparisons made to the reference groups 'raceAsian' and 'genderMale.'"),
-         p("The results show that being female significantly increases the odds of admission, while Black and Hispanic applicants face lower odds, with Black applicants experiencing the most disadvantage. White and international applicants have slightly higher odds of admission, while other racial categories show minimal impact."),
-         p("One-hot encoding is a preprocessing technique that converts categorical variables (e.g., race or gender) into binary columns, enabling the model to analyze each category independently. Each column takes a value of 1 if the individual belongs to that category and 0 otherwise. This method ensures compatibility with logistic regression, which requires numerical inputs."),
-        p("Log-odds coefficients represent how much the odds of admission change for a variable. Odds are the ratio of the probability of being admitted to not being admitted, and log-odds are the logarithm of this ratio. This ensures predictions remain within valid probability ranges (0 to 1). These insights highlight potential disparities and can inform efforts to promote fairness and diversity in admissions.")
-),
+       p("The graph explores how gender and race impact MBA admission decisions, using log-odds coefficients derived from a logistic regression model. Positive values indicate an increased likelihood of admission, while negative values reflect a reduced likelihood, with comparisons made to the reference groups “raceAsian” and “genderMale.”"),
+      p("The results show that being female significantly increases the odds of admission, while Black and Hispanic applicants face lower odds, with Black applicants experiencing the most disadvantage. White and international applicants have slightly higher odds of admission, while other racial categories show minimal impact."),
+      p("One-hot encoding, a preprocessing technique used in statistical modeling, was applied to convert categorical variables (e.g., race or gender) into separate binary columns. Each column takes a value of 1 if the individual belongs to that category and 0 otherwise, enabling the model to analyze the impact of each category independently. Log-odds coefficients represent how much the odds of admission change for a variable, where odds are the ratio of the probability of being admitted to the probability of not being admitted. These insights highlight potential disparities in admission decisions and can inform efforts to promote fairness and diversity in MBA programs.")
+    ),
     tabPanel("Plot 3: GPA and GMAT Trends",
              sidebarLayout(
                sidebarPanel(
