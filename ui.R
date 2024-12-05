@@ -31,7 +31,9 @@ ui <- fluidPage(
                tags$li("Identifying Biases and Inequities: Analyzing the relationships between demographic factors (such as gender, race, and international status) and admission outcomes can reveal potential biases in the admissions process."),
                tags$li("Optimizing Admissions Criteria: By evaluating the impact of academic performance indicators like GPA and GMAT scores alongside experiential factors like work experience and industry background, the admissions committee can refine their criteria."),
                tags$li("Enhancing Applicant Guidance: The insights gained from this analysis can be valuable for prospective applicants. Understanding which factors significantly influence admissions can help applicants tailor their applications more effectively, focusing on areas that align with the admissions committee's expectations.")
-             )
+             ),
+             h3("Summary"),
+             p("The admissions outcomes for Wharton’s Class of 2025 are influenced primarily by academic metrics, with GPA and GMAT scores being the strongest determinants. Applicants with GPAs above 3.2 and GMAT scores exceeding 650 had significantly higher chances of admission, reflecting the importance of academic excellence. While demographic factors like gender and race also play a role, with female and White applicants showing slightly better odds of admission compared to other groups, these effects are secondary to academic qualifications. Factors such as an applicant's major (Business, STEM, or Humanities) showed minimal impact on admissions outcomes. Overall, a strong academic profile, coupled with well-rounded personal achievements, appears critical for admission success.")
     ),
     tabPanel("Plot 1: Admission Rates by Category",
              sidebarPanel(
